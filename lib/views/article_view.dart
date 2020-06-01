@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:share/share.dart';
+import 'category_news.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -35,7 +36,10 @@ class _ArticleViewState extends State<ArticleView> {
             padding: EdgeInsets.symmetric(
               horizontal: 16.0,
             ),
-            child: Icon(Icons.share),
+            child: IconButton(icon: Icon(Icons.share),
+            onPressed: (){
+              Share.share(widget.blogUrl);
+            },),
           ),
         ],
         centerTitle: true,
