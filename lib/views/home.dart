@@ -43,9 +43,9 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              icon:Icon(Icons.menu),
+              icon: Icon(Icons.menu),
               color: Colors.orange,
-              onPressed: () {}, 
+              onPressed: () {},
             ),
             Text(
               "LivnoNews",
@@ -213,7 +213,7 @@ class BlogTile extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              DateFormat.yMMMd().add_jms().format(DateTime.parse(publishedAt)),
+              DateFormat.yMMMMd().add_Hm().format(DateTime.parse(publishedAt)),
               style: TextStyle(
                 color: Colors.black87,
               ),
