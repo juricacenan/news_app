@@ -16,3 +16,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//TODO GET RID OF WEBVIEW
+//TODO SIDE MENU FOR CATEGORIES
+//TODO LOGIN WITH FACEBOOK FOR COMMENTS
