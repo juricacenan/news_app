@@ -5,7 +5,7 @@ import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_model.dart';
 import 'category_news.dart';
-
+import 'package:intl/intl.dart';
 import 'article_view.dart';
 
 class Home extends StatefulWidget {
@@ -40,12 +40,23 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text("Livno"),
+            IconButton(
+              icon:Icon(Icons.menu),
+              color: Colors.orange,
+              onPressed: () {}, 
+            ),
             Text(
-              "News",
-              style: TextStyle(color: Colors.orange),
+              "LivnoNews",
+              style: TextStyle(color: Colors.black87),
+            ),
+            IconButton(
+              icon: Icon(Icons.search),
+              color: Colors.orange,
+              onPressed: () {
+                debugPrint("pressed");
+              },
             ),
           ],
         ),
@@ -91,6 +102,7 @@ class _HomeState extends State<Home> {
                             title: articles[index].title,
                             description: articles[index].description,
                             url: articles[index].url,
+                            publishedAt: articles[index].publishedAt,
                           );
                         },
                       ),
@@ -157,12 +169,13 @@ class CategoryTile extends StatelessWidget {
 }
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, description, url;
+  final String imageUrl, title, description, url, publishedAt;
   BlogTile(
       {@required this.imageUrl,
       @required this.description,
       @required this.title,
-      @required this.url});
+      @required this.url,
+      @required this.publishedAt});
 
   @override
   Widget build(BuildContext context) {
@@ -198,6 +211,14 @@ class BlogTile extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(height: 8),
+            Text(
+              DateFormat.yMMMd().add_jms().format(DateTime.parse(publishedAt)),
+              style: TextStyle(
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height: 8),
           ],
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
+import 'package:intl/intl.dart';
+
 
 import 'article_view.dart';
 
@@ -81,6 +83,7 @@ class _CategoryNewsState extends State<CategoryNews> {
                               title: articles[index].title,
                               description: articles[index].description,
                               url: articles[index].url,
+                              publishedAt: articles[index].publishedAt,
                             );
                           },
                         ),
@@ -93,11 +96,12 @@ class _CategoryNewsState extends State<CategoryNews> {
 }
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, description, url;
+  final String imageUrl, title, description, url,publishedAt;
   BlogTile(
       {@required this.imageUrl,
       @required this.description,
       @required this.title,
+      @required this.publishedAt,
       @required this.url});
 
   @override
@@ -134,6 +138,14 @@ class BlogTile extends StatelessWidget {
                 color: Colors.black54,
               ),
             ),
+            SizedBox(height: 8),
+            Text(
+              DateFormat.yMMMd().add_jms().format(DateTime.parse(publishedAt)),
+                            style: TextStyle(
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height:8),
           ],
         ),
       ),

@@ -6,7 +6,8 @@ class ArticleModel{
    String url;
    String urlToImage;
    String content;
+   String publishedAt;
 
 
-  ArticleModel({this.author, this.title,this.content,this.description,this.url,this.urlToImage,});
+  ArticleModel({this.author, this.title,this.content,this.description,this.url,this.urlToImage,this.publishedAt});
 }
