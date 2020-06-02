@@ -3,8 +3,6 @@ import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
 import 'package:news_app/widgets/blog_tile.dart';
 
-
-
 class CategoryNews extends StatefulWidget {
   final String category;
   CategoryNews({this.category});
@@ -39,10 +37,9 @@ class _CategoryNewsState extends State<CategoryNews> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Livno"),
             Text(
-              "News",
-              style: TextStyle(color: Colors.orange),
+              "LivnoNews",
+              style: TextStyle(color: Colors.black87),
             ),
           ],
         ),
@@ -93,4 +90,3 @@ class _CategoryNewsState extends State<CategoryNews> {
     );
   }
 }
-

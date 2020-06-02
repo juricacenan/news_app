@@ -22,30 +22,30 @@ class _ArticleViewState extends State<ArticleView> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Livno"),
-            Text(
-              "News",
-              style: TextStyle(color: Colors.orange),
-            ),
+            Text("LivnoNews"),
           ],
         ),
         actions: <Widget>[
-          Opacity(opacity: 0,),
+          Opacity(
+            opacity: 0,
+          ),
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: 16.0,
             ),
-            child: IconButton(icon: Icon(Icons.share),
-            onPressed: (){
-              Share.share(widget.blogUrl);
-            },),
+            child: IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {
+                Share.share(widget.blogUrl);
+              },
+            ),
           ),
         ],
         centerTitle: true,
         elevation: 0.0,
       ),
       body: Container(
-        height:MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: WebView(
           initialUrl: widget.blogUrl,

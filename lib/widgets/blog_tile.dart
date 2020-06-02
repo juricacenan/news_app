@@ -42,7 +42,7 @@ class BlogTile extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              DateFormat.yMMMMd().add_Hm().format(DateTime.parse(publishedAt)),
+              DateFormat("dd/MM/yyyy hh:mm").format(DateTime.parse(publishedAt)),
               style: TextStyle(
                 color: Colors.black87,
               ),
