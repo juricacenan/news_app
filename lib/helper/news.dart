@@ -28,7 +28,9 @@ class News {
             publishedAt: element["publishedAt"],
           );
           news.add(articleModel);
-        }
+        } /* else {
+      throw Exception("Failed to get news");
+    } */
       });
     }
   }
@@ -58,7 +60,9 @@ class CategoryNewsClass {
             publishedAt: element["publishedAt"],
           );
           news.add(articleModel);
-        }
+        } /* else {
+          throw Exception("Failed to get news");
+        } */
       });
     }
   }

@@ -34,7 +34,19 @@ class _CategoryNewsState extends State<CategoryNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title:Text(
+          "LivNovosti",
+          style: TextStyle(color: Colors.blue[700]),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
+        centerTitle: true,
+        elevation: 0.0,
+         /* Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
@@ -52,9 +64,9 @@ class _CategoryNewsState extends State<CategoryNews> {
               horizontal: 16.0,
             ),
           ),
-        ],
+        ], 
         centerTitle: true,
-        elevation: 0.0,
+        elevation: 0.0, */
       ),
       body: _loading
           ? Center(

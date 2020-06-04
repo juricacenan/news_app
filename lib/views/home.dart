@@ -6,7 +6,6 @@ import 'package:news_app/models/category_model.dart';
 import 'package:news_app/widgets/blog_tile.dart';
 import 'package:news_app/widgets/category_tile.dart';
 
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -38,30 +37,20 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.menu),
-              color: Colors.orange,
-              onPressed: () {},
-            ),
-            Text(
-              "LivnoNews",
-              style: TextStyle(color: Colors.black87),
-            ),
-            IconButton(
-              icon: Icon(Icons.search),
-              color: Colors.orange,
-              onPressed: () {
-                debugPrint("pressed");
-              },
-            ),
-          ],
+        title: Text(
+          "LivNovosti",
+          style: TextStyle(color: Colors.blue[700]),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
         centerTitle: true,
         elevation: 0.0,
       ),
+      drawer: Drawer(),
       body: _loading
           ? Center(
               child: Container(
@@ -113,6 +102,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-
-
