@@ -6,7 +6,7 @@ class SearchArticle extends SearchDelegate<String> {
   SearchArticle({String hintText = "Search for news..."})
       : super(searchFieldLabel: hintText);
 
-  List<ArticleModel> articles = new List<ArticleModel>();
+  List<SearchModel> articles = new List<SearchModel>();
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -69,7 +69,6 @@ class SearchArticle extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    throw UnimplementedError();
+    return Container();
   }
 }

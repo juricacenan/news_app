@@ -5,6 +5,7 @@ import 'package:news_app/models/article_model.dart';
 import 'package:news_app/models/category_model.dart';
 import 'package:news_app/widgets/blog_tile.dart';
 import 'package:news_app/widgets/category_tile.dart';
+import 'package:news_app/widgets/search_article.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -44,7 +45,12 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: SearchArticle(),
+              );
+            },
           ),
         ],
         centerTitle: true,
