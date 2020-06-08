@@ -71,9 +71,9 @@ class CategoryNewsClass {
 }
 
 class SearchNewsClass {
-  List<SearchModel> news = [];
+  List<SearchModel> searches = [];
 
-  Future<void> getNews(String query) async {
+  Future<void> getSearches(String query) async {
     String url =
         "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=$_apiKey";
 
@@ -93,7 +93,7 @@ class SearchNewsClass {
             content: element["context"],
             publishedAt: element["publishedAt"],
           );
-          news.add(searchModel);
+          searches.add(searchModel);
         }
       });
     }

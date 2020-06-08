@@ -12,7 +12,7 @@ class SearchResults extends StatefulWidget {
 }
 
 class _SearchResultsState extends State<SearchResults> {
-  List<SearchModel> articles = new List<SearchModel>();
+  List<SearchModel> searches = new List<SearchModel>();
 
 
   @override
@@ -23,8 +23,8 @@ class _SearchResultsState extends State<SearchResults> {
 
   getSearchResults() async {
     SearchNewsClass newsClass = SearchNewsClass();
-    await newsClass.getNews(widget.query);
-    articles = newsClass.news;
+    await newsClass.getSearches(widget.query);
+    searches = newsClass.searches;
 
   }
 
@@ -33,16 +33,16 @@ class _SearchResultsState extends State<SearchResults> {
     return Container(
       padding: EdgeInsets.only(top: 16),
       child: ListView.builder(
-        itemCount: articles.length,
+        itemCount: searches.length,
         shrinkWrap: true,
         physics: ClampingScrollPhysics(),
         itemBuilder: (context, index) {
           return BlogTile(
-            imageUrl: articles[index].urlToImage,
-            title: articles[index].title,
-            description: articles[index].description,
-            url: articles[index].url,
-            publishedAt: articles[index].publishedAt,
+            imageUrl: searches[index].urlToImage,
+            title: searches[index].title,
+            description: searches[index].description,
+            url: searches[index].url,
+            publishedAt: searches[index].publishedAt,
           );
         },
       ),
