@@ -35,9 +35,11 @@ class CategoryTile extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              color: Colors.black26,
               width: 120,
               height: 60,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Colors.black26),
               child: Text(
                 categoryName,
                 style: kCategoryNameTextStyle,
