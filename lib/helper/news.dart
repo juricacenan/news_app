@@ -71,24 +71,20 @@ class CategoryNewsClass {
 }
 
 class SearchNewsClass {
-    List<ArticleModel> news = [];
+  List<SearchModel> news = [];
 
-  Future<void> getNews(String searchQuery) async {
-    var response = await http.get(
-        Uri.encodeFull('https://newsapi.org/v2/everything?q=' +
-            searchQuery +
-            '&sortBy=popularity'),
-        headers: {
-          "Accept": "application/json",
-          "X-Api-Key": "ebe13e8db20e49a295458f1fb45ca2b7"
-        });
+  Future<void> getNews(String query) async {
+    String url =
+        "https://newsapi.org/v2/everything?q=$query&sortBy=popularity&apiKey=$_apiKey";
+
+    var response = await http.get(url);
 
     var jsonData = jsonDecode(response.body);
 
     if (jsonData['status'] == "ok") {
       jsonData["articles"].forEach((element) {
         if (element["urlToImage"] != null && element['description'] != null) {
-          ArticleModel articleModel = ArticleModel(
+          SearchModel searchModel = SearchModel(
             title: element["title"],
             author: element["author"],
             description: element["description"],
@@ -97,11 +93,8 @@ class SearchNewsClass {
             content: element["context"],
             publishedAt: element["publishedAt"],
           );
-          news.add(articleModel);
+          news.add(searchModel);
         }
-        /* else {
-          throw Exception("Failed to get news");
-        } */
       });
     }
   }

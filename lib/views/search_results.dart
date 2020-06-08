@@ -4,15 +4,15 @@ import 'package:news_app/models/article_model.dart';
 import 'package:news_app/widgets/blog_tile.dart';
 
 class SearchResults extends StatefulWidget {
-  final String searchQuery;
-  SearchResults({this.searchQuery});
+  final String query;
+  SearchResults({this.query});
 
   @override
   _SearchResultsState createState() => _SearchResultsState();
 }
 
 class _SearchResultsState extends State<SearchResults> {
-  List<ArticleModel> articles = new List<ArticleModel>();
+  List<SearchModel> articles = new List<SearchModel>();
 
 
   @override
@@ -23,7 +23,7 @@ class _SearchResultsState extends State<SearchResults> {
 
   getSearchResults() async {
     SearchNewsClass newsClass = SearchNewsClass();
-    await newsClass.getNews(widget.searchQuery);
+    await newsClass.getNews(widget.query);
     articles = newsClass.news;
 
   }
