@@ -6,6 +6,6 @@ const kDescriptionTextStyle = TextStyle(
   color: Colors.black54,
 );
 const kCategoryNameTextStyle =
-    TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500);
+    TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500);
 
 

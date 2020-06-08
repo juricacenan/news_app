@@ -28,17 +28,17 @@ class CategoryTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(6),
               child: CachedNetworkImage(
                 imageUrl: imageUrl,
-                width: 120,
+                width: 140,
                 height: 60,
                 fit: BoxFit.cover,
               ),
             ),
             Container(
               alignment: Alignment.center,
-              width: 120,
+              width:140,
               height: 60,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(6),
                   color: Colors.black26),
               child: Text(
                 categoryName,
