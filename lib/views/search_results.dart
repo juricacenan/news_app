@@ -14,7 +14,6 @@ class SearchResults extends StatefulWidget {
 class _SearchResultsState extends State<SearchResults> {
   List<SearchModel> searches = new List<SearchModel>();
 
-
   @override
   void initState() {
     super.initState();
@@ -25,7 +24,6 @@ class _SearchResultsState extends State<SearchResults> {
     SearchNewsClass newsClass = SearchNewsClass();
     await newsClass.getSearches(widget.query);
     searches = newsClass.searches;
-
   }
 
   @override
@@ -43,6 +41,7 @@ class _SearchResultsState extends State<SearchResults> {
             description: searches[index].description,
             url: searches[index].url,
             publishedAt: searches[index].publishedAt,
+            content: searches[index].content,
           );
         },
       ),

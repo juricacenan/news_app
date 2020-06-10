@@ -97,6 +97,7 @@ class _HomeState extends State<Home> {
                             description: articles[index].description,
                             url: articles[index].url,
                             publishedAt: articles[index].publishedAt,
+                            content: articles[index].content,
                           );
                         },
                       ),

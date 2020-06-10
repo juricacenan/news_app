@@ -4,13 +4,14 @@ import 'package:intl/intl.dart';
 import 'package:news_app/helper/constants.dart';
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, description, url, publishedAt;
+  final String imageUrl, title, description, url, publishedAt,content;
   BlogTile(
       {@required this.imageUrl,
       @required this.description,
       @required this.title,
       @required this.url,
-      @required this.publishedAt});
+      @required this.publishedAt,
+      @required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,14 @@ class BlogTile extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ArticleView(blogUrl: url),
+            builder: (context) => ArticleView(
+              blogUrl: url,
+              blogDescription: description,
+              blogImageUrl: imageUrl,
+              blogPublishedAt: publishedAt,
+              blogTitle: title,
+              blogContent: content,
+            ),
           ),
         );
       },
@@ -42,7 +50,9 @@ class BlogTile extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              DateFormat.yMMMMEEEEd('en-us').format(DateTime.parse(publishedAt)).toString(),
+              DateFormat.yMMMMEEEEd('en-us')
+                  .format(DateTime.parse(publishedAt))
+                  .toString(),
               style: TextStyle(
                 color: Colors.black87,
               ),

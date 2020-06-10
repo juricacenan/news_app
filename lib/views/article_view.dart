@@ -1,20 +1,30 @@
-import 'dart:async';
 import 'package:share/share.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:intl/intl.dart';
 
-class ArticleView extends StatefulWidget {
-  final String blogUrl;
-  ArticleView({this.blogUrl});
+class ArticleView extends StatelessWidget {
+  final String blogImageUrl,
+      blogTitle,
+      blogDescription,
+      blogUrl,
+      blogPublishedAt,
+      blogContent;
+  ArticleView(
+      {this.blogUrl,
+      this.blogDescription,
+      this.blogImageUrl,
+      this.blogPublishedAt,
+      this.blogTitle,
+      this.blogContent});
 
-  @override
+/*   @override
   _ArticleViewState createState() => _ArticleViewState();
 }
 
 class _ArticleViewState extends State<ArticleView> {
   final Completer<WebViewController> _completer =
       Completer<WebViewController>();
-
+ */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +37,79 @@ class _ArticleViewState extends State<ArticleView> {
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () {
-              Share.share(widget.blogUrl);
+              Share.share(blogUrl);
             },
           ),
         ],
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: Container(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  blogTitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    wordSpacing: 3,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  DateFormat.yMMMMEEEEd('en-us')
+                      .format(DateTime.parse(blogPublishedAt))
+                      .toString(),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: Image.network(blogImageUrl)),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  blogDescription ?? "No Contents",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    wordSpacing: 3,
+                  ),
+                ),
+                Divider(
+                  height: 30,
+                  color: Colors.blue[700],
+                  thickness: 2,
+                ),
+               
+                Text(
+                  blogContent,
+                  style: TextStyle(
+                    fontSize: 18,
+                    wordSpacing: 3,
+                  ),
+                ),
+                  SizedBox(
+                  height: 30,
+                ), 
+              ],
+            ),
+          ),
+        ),
+      ),
+/*       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: WebView(
@@ -43,7 +118,7 @@ class _ArticleViewState extends State<ArticleView> {
             _completer.complete(webViewController);
           }),
         ),
-      ),
+      ), */
     );
   }
 }
