@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:news_app/helper/constants.dart';
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, description, url, publishedAt,content;
+  final String imageUrl, title, description, url, publishedAt, content;
   BlogTile(
       {@required this.imageUrl,
       @required this.description,
@@ -36,8 +36,12 @@ class BlogTile extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: Image.network(imageUrl)),
+              borderRadius: BorderRadius.circular(6),
+              child: Image.network(imageUrl) ??
+                  AssetImage(
+                    'assets/images/news.jpeg',
+                  ),
+            ),
             SizedBox(height: 8),
             Text(
               title,
@@ -54,8 +58,8 @@ class BlogTile extends StatelessWidget {
                   .format(DateTime.parse(publishedAt))
                   .toString(),
               style: TextStyle(
-               // color: Colors.black87,
-              ),
+                  // color: Colors.black87,
+                  ),
             ),
             SizedBox(height: 8),
           ],

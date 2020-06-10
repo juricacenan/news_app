@@ -11,10 +11,10 @@ const kCategoryNameTextStyle =
 
 class Constants {
   static const String _APIKEY = "ebe13e8db20e49a295458f1fb45ca2b7";
-  static const String HEADLINESURL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=$_APIKEY';
+  static const String HEADLINESURL = 'https://newsapi.org/v2/top-headlines?country=gb&apiKey=$_APIKEY';
 
   static String headlinesFor(String category) {
-    return 'http://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=$_APIKEY';
+    return 'http://newsapi.org/v2/top-headlines?country=gb&category=$category&apiKey=$_APIKEY';
   }
 }
 

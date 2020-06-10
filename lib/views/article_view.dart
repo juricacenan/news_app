@@ -75,8 +75,12 @@ class _ArticleViewState extends State<ArticleView> {
                   height: 30,
                 ),
                 ClipRRect(
-                    borderRadius: BorderRadius.circular(6),
-                    child: Image.network(blogImageUrl)),
+                  borderRadius: BorderRadius.circular(6),
+                  child: Image.network(blogImageUrl) ??
+                      AssetImage(
+                        'assets/images/news.jpeg',
+                      ),
+                ),
                 SizedBox(
                   height: 30,
                 ),
@@ -93,7 +97,6 @@ class _ArticleViewState extends State<ArticleView> {
                   color: Colors.blue[700],
                   thickness: 2,
                 ),
-               
                 Text(
                   blogContent ?? "No Contents",
                   style: TextStyle(
@@ -101,9 +104,9 @@ class _ArticleViewState extends State<ArticleView> {
                     wordSpacing: 3,
                   ),
                 ),
-                  SizedBox(
+                SizedBox(
                   height: 30,
-                ), 
+                ),
               ],
             ),
           ),

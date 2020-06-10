@@ -25,5 +25,5 @@ class MyApp extends StatelessWidget {
 
 //TODO: DRAWER FINISH !!!
 //TODO: FINISH SEARCH BAR !!!
-
+//TODO: IF CANT LOAD IMG LOAD REPLACEMENT !!!
 
