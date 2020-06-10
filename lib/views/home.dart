@@ -69,6 +69,7 @@ class _HomeState extends State<Home> {
                     'images/jure.jpg',
                     width: 80,
                     height: 80,
+                    colorBlendMode: BlendMode.color,
                   ),
                   SizedBox(
                     height: 15,
@@ -78,9 +79,6 @@ class _HomeState extends State<Home> {
                   ),
                   Text("App Developer"),
                 ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
               ),
             ),
             ListTile(
