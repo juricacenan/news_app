@@ -31,7 +31,7 @@ class _ArticleViewState extends State<ArticleView> {
       appBar: AppBar(
         title: Text(
           "LivNovosti",
-          style: TextStyle(color: Colors.blue[700]),
+          style: TextStyle(color: Colors.white),
         ),
         actions: <Widget>[
           IconButton(
@@ -46,13 +46,13 @@ class _ArticleViewState extends State<ArticleView> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Text(
-                  blogTitle,
+                  blogTitle ?? "No Title",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
@@ -81,7 +81,7 @@ class _ArticleViewState extends State<ArticleView> {
                   height: 30,
                 ),
                 Text(
-                  blogDescription ?? "No Contents",
+                  blogDescription ?? "No Description",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -95,7 +95,7 @@ class _ArticleViewState extends State<ArticleView> {
                 ),
                
                 Text(
-                  blogContent,
+                  blogContent ?? "No Contents",
                   style: TextStyle(
                     fontSize: 18,
                     wordSpacing: 3,

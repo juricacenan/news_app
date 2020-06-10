@@ -10,7 +10,13 @@ class MyApp extends StatelessWidget {
       title: 'LivnoNews',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white,
+        brightness: Brightness.light,
+        primaryColor: Colors.blue,
+      ),
+      darkTheme: ThemeData(
+        
+        brightness: Brightness.dark,
+        
       ),
       home: Home(),
     );
@@ -19,4 +25,3 @@ class MyApp extends StatelessWidget {
 
 //TODO: DRAWER FINISH !!!
 //TODO: FINISH SEARCH BAR !!!
-

@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           "LivNovosti",
-          style: TextStyle(color: Colors.blue[700]),
+          style: TextStyle(color: Colors.white),
         ),
         actions: <Widget>[
           IconButton(
@@ -56,7 +56,43 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'images/jure.jpg',
+                    width: 80,
+                    height: 80,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Jurica Cenan",
+                  ),
+                  Text("App Developer"),
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('App Info'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: _loading
           ? Center(
               child: Container(
@@ -65,7 +101,7 @@ class _HomeState extends State<Home> {
             )
           : SingleChildScrollView(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.all(16),
                 child: Column(
                   children: <Widget>[
                     //CATEGORIES

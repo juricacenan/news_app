@@ -54,7 +54,7 @@ class BlogTile extends StatelessWidget {
                   .format(DateTime.parse(publishedAt))
                   .toString(),
               style: TextStyle(
-                color: Colors.black87,
+               // color: Colors.black87,
               ),
             ),
             SizedBox(height: 8),

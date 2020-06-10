@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 const kTitleTextStyle =
-    TextStyle(color: Colors.black87, fontWeight: FontWeight.w500, fontSize: 18);
+    TextStyle(/* color: Colors.black87, */ fontWeight: FontWeight.w700, fontSize: 18);
 const kDescriptionTextStyle = TextStyle(
-  color: Colors.black54,
+  fontWeight: FontWeight.w400
+  /* color:  Colors.black54, */ 
 );
 const kCategoryNameTextStyle =
-    TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500);
+    TextStyle( color: Colors.white,  fontSize: 16, fontWeight: FontWeight.w500);
 
 class Constants {
   static const String _APIKEY = "ebe13e8db20e49a295458f1fb45ca2b7";

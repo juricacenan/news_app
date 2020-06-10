@@ -36,7 +36,7 @@ class _CategoryNewsState extends State<CategoryNews> {
       appBar: AppBar(
         title: Text(
           "LivNovosti",
-          style: TextStyle(color: Colors.blue[700]),
+          style: TextStyle(color: Colors.white),
         ),
         actions: <Widget>[
           IconButton(
@@ -55,7 +55,7 @@ class _CategoryNewsState extends State<CategoryNews> {
             )
           : SingleChildScrollView(
               child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.all(16),
                   child: Column(
                     children: <Widget>[
                       Container(
