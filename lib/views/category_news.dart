@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/drawerscreens/kamensko.dart';
+import 'package:news_app/drawerscreens/osmrtnice.dart';
+import 'package:news_app/drawerscreens/prisika.dart';
+import 'package:news_app/drawerscreens/trg.dart';
+import 'package:news_app/helper/data.dart';
 import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
+import 'package:news_app/models/category_model.dart';
 import 'package:news_app/widgets/blog_tile.dart';
+import 'package:news_app/widgets/category_tile.dart';
+import 'package:news_app/widgets/search_article.dart';
 
 class CategoryNews extends StatefulWidget {
   final String category;
@@ -12,6 +20,7 @@ class CategoryNews extends StatefulWidget {
 }
 
 class _CategoryNewsState extends State<CategoryNews> {
+  List<CategoryModel> categories = new List<CategoryModel>();
   List<ArticleModel> articles = new List<ArticleModel>();
   bool _loading = true;
 
@@ -19,6 +28,7 @@ class _CategoryNewsState extends State<CategoryNews> {
   void initState() {
     super.initState();
     getCategoryNews();
+    categories = getCategories();
   }
 
   getCategoryNews() async {
@@ -41,11 +51,83 @@ class _CategoryNewsState extends State<CategoryNews> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: SearchArticle(),
+              );
+            },
           ),
         ],
         centerTitle: true,
         elevation: 0.0,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'images/jure.jpg',
+                    width: 80,
+                    height: 80,
+                    colorBlendMode: BlendMode.color,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    "Jurica Cenan",
+                  ),
+                  Text("App Developer"),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.people_outline),
+              title: Text('Osmrtnice'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Osmrtnice()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.camera_alt),
+              title: Text('Kamera Livno(Trg)'),
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Trg()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.camera_alt),
+              title: Text('Kamera Kamensko'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Kamensko()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.camera_alt),
+              title: Text('Kamera Prisika'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Prisika()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('App Info'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
       ),
       body: _loading
           ? Center(
@@ -58,6 +140,19 @@ class _CategoryNewsState extends State<CategoryNews> {
                   padding: EdgeInsets.all(16),
                   child: Column(
                     children: <Widget>[
+                      Container(
+                        height: 70,
+                        child: ListView.builder(
+                          itemCount: categories.length,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return CategoryTile(
+                                imageUrl: categories[index].imageUrl,
+                                categoryName: categories[index].categoryName);
+                          },
+                        ),
+                      ),
                       Container(
                         padding: EdgeInsets.only(top: 16),
                         child: ListView.builder(
