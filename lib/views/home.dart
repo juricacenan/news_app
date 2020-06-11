@@ -152,6 +152,20 @@ class _HomeState extends State<Home> {
                         },
                       ),
                     ),
+                    SizedBox(height: 10),
+                    Text(
+                     "TOP HEADLINES" ?? "ERROR 404",
+                      style: TextStyle(
+                        letterSpacing: 3,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Divider(
+                      height: 30,
+                      color: Colors.blue[700],
+                      thickness: 2,
+                    ),
                     //BLOGS
                     Container(
                       padding: EdgeInsets.only(top: 16),

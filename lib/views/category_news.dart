@@ -161,8 +161,9 @@ class _CategoryNewsState extends State<CategoryNews> {
                       Text(
                         widget.category.toUpperCase() ?? "ERROR 404",
                         style: TextStyle(
+                          letterSpacing: 3,
                           fontSize: 20,
-                          fontWeight: FontWeight.w400,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       Divider(
