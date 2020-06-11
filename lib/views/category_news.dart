@@ -13,7 +13,10 @@ import 'package:news_app/widgets/search_article.dart';
 
 class CategoryNews extends StatefulWidget {
   final String category;
-  CategoryNews({this.category});
+
+  CategoryNews({
+    this.category,
+  });
 
   @override
   _CategoryNewsState createState() => _CategoryNewsState();
@@ -22,6 +25,7 @@ class CategoryNews extends StatefulWidget {
 class _CategoryNewsState extends State<CategoryNews> {
   List<CategoryModel> categories = new List<CategoryModel>();
   List<ArticleModel> articles = new List<ArticleModel>();
+
   bool _loading = true;
 
   @override
@@ -152,6 +156,19 @@ class _CategoryNewsState extends State<CategoryNews> {
                                 categoryName: categories[index].categoryName);
                           },
                         ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        widget.category.toUpperCase() ?? "ERROR 404",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Divider(
+                        height: 30,
+                        color: Colors.blue[700],
+                        thickness: 2,
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 16),

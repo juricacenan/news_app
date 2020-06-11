@@ -90,15 +90,15 @@ class _HomeState extends State<Home> {
               title: Text('Osmrtnice'),
               onTap: () {
                 Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Osmrtnice()));
+                    MaterialPageRoute(builder: (context) => Osmrtnice()));
               },
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
               title: Text('Kamera Livno(Trg)'),
               onTap: () {
-                Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Trg()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Trg()));
               },
             ),
             ListTile(
@@ -106,15 +106,15 @@ class _HomeState extends State<Home> {
               title: Text('Kamera Kamensko'),
               onTap: () {
                 Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Kamensko()));
+                    MaterialPageRoute(builder: (context) => Kamensko()));
               },
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
               title: Text('Kamera Prisika'),
               onTap: () {
-               Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Prisika()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Prisika()));
               },
             ),
             ListTile(
@@ -152,7 +152,6 @@ class _HomeState extends State<Home> {
                         },
                       ),
                     ),
-
                     //BLOGS
                     Container(
                       padding: EdgeInsets.only(top: 16),
