@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/drawerscreens/kamensko.dart';
+import 'package:news_app/drawerscreens/osmrtnice.dart';
+import 'package:news_app/drawerscreens/prisika.dart';
+import 'package:news_app/drawerscreens/trg.dart';
 import 'package:news_app/helper/data.dart';
 import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
@@ -85,28 +89,32 @@ class _HomeState extends State<Home> {
               leading: Icon(Icons.people_outline),
               title: Text('Osmrtnice'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Osmrtnice()));
               },
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
               title: Text('Kamera Livno(Trg)'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Trg()));
               },
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
               title: Text('Kamera Kamensko'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Kamensko()));
               },
             ),
             ListTile(
               leading: Icon(Icons.camera_alt),
               title: Text('Kamera Prisika'),
               onTap: () {
-                Navigator.pop(context);
+               Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Prisika()));
               },
             ),
             ListTile(
