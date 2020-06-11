@@ -17,14 +17,6 @@ class ArticleView extends StatelessWidget {
       this.blogTitle,
       this.blogContent});
 
-/*   @override
-  _ArticleViewState createState() => _ArticleViewState();
-}
-
-class _ArticleViewState extends State<ArticleView> {
-  final Completer<WebViewController> _completer =
-      Completer<WebViewController>();
- */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +55,7 @@ class _ArticleViewState extends State<ArticleView> {
                   height: 20,
                 ),
                 Text(
-                  DateFormat.yMMMMEEEEd('en-us')
+                  DateFormat.yMMMMEEEEd('en-US')
                       .format(DateTime.parse(blogPublishedAt))
                       .toString(),
                   style: TextStyle(
